@@ -40,40 +40,40 @@ export default function Lore() {
   );
 
   return (
-    <div className="min-h-screen bg-navy p-4 pb-24">
+    <div className="min-h-screen bg-parchment-50 p-4 pb-24">
       <div className="max-w-4xl mx-auto">
         <div className="mb-8 pt-6">
-          <h1 className="text-3xl md:text-5xl text-gold mb-2 drop-shadow-md">Lore Encyclopedia</h1>
-          <p className="text-parchment/80 font-lora">Discover the history and secrets of Echelon.</p>
+          <h1 className="text-3xl mb-2 text-ink-900">Lore Encyclopedia</h1>
+          <p className="text-ink-700">Discover the history and secrets of Echelon.</p>
         </div>
 
         <div className="relative mb-8">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-navy/50 w-5 h-5" />
-          <input 
-            type="text" 
-            placeholder="Search lore..." 
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-ink-500 w-5 h-5" />
+          <input
+            type="text"
+            placeholder="Search lore..."
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full bg-parchment text-navy pl-12 pr-4 py-3 rounded-full border-2 border-gold focus:outline-none focus:ring-2 focus:ring-gold/50 font-lora text-lg placeholder:text-navy/50"
+            className="focus-ring w-full bg-parchment-50 text-ink-900 pl-12 pr-4 py-3 rounded-control border border-border-tan focus:outline-none focus:border-gold-leaf text-lg placeholder:text-ink-500"
           />
         </div>
 
         <div className="grid gap-6">
           {filteredLore.map((entry) => (
-            <motion.div 
+            <motion.div
               key={entry.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="bg-navy/80 backdrop-blur border border-gold/30 p-6 rounded-xl hover:border-gold/60 transition-colors"
+              className="bg-parchment-100 border border-border-tan p-6 rounded-card shadow-resting hover:border-gold-leaf transition-colors"
             >
-              <div className="flex items-center gap-3 mb-3">
-                <Book className="text-gold w-6 h-6" />
-                <h2 className="text-2xl font-cinzel text-gold">{entry.title}</h2>
+              <div className="flex items-center gap-3 mb-3 pb-3 border-b border-ink-700">
+                <Book className="text-gold-leaf w-6 h-6" />
+                <h2 className="text-2xl text-ink-900">{entry.title}</h2>
               </div>
-              <span className="inline-block px-3 py-1 bg-gold/10 text-gold text-xs rounded-full uppercase tracking-wider mb-4 border border-gold/20">
+              <span className="inline-block px-3 py-1 bg-sand-400 text-ink-900 text-xs rounded-control uppercase tracking-wider mb-4 border border-border-tan">
                 {entry.category}
               </span>
-              <p className="text-parchment/90 leading-relaxed">
+              <p className="text-ink-700 leading-relaxed">
                 {entry.content}
               </p>
             </motion.div>

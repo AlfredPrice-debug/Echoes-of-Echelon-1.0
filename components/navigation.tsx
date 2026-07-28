@@ -16,17 +16,23 @@ export function Navigation() {
   ];
 
   return (
-    <nav className="fixed bottom-0 w-full bg-navy border-t border-gold/30 flex justify-around p-2 z-50">
+    <nav className="fixed bottom-0 w-full bg-forest-800 border-t border-border-tan/40 flex justify-around p-2 z-50">
       {links.map(({ href, label, icon: Icon }) => {
         const isActive = pathname === href;
         return (
           <Link
             key={href}
             href={href}
-            className={`flex flex-col items-center p-2 transition-colors ${
-              isActive ? 'text-gold' : 'text-parchment/60 hover:text-parchment'
+            className={`focus-ring relative flex flex-col items-center p-2 transition-colors ${
+              isActive ? 'text-gold-leaf' : 'text-parchment-100/70 hover:text-parchment-100'
             }`}
           >
+            {isActive && (
+              <span
+                aria-hidden="true"
+                className="absolute top-0 left-1/2 -translate-x-1/2 h-0.5 w-8 bg-gold-leaf"
+              />
+            )}
             <Icon size={24} />
             <span className="text-xs mt-1 font-cinzel">{label}</span>
           </Link>
